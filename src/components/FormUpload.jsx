@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { uploadImage } from "../API/API_access";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const FormUpload = (props) => {
   const { register, handleSubmit } = useForm();
@@ -19,15 +20,17 @@ const FormUpload = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>Télécharger vos images</h3>
+
       <div class="form-group">
         <label for="description">Description</label>
-        <input
-          type="text"
+        <textarea
           class="form-control"
           name="description"
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
       </div>
 
@@ -39,6 +42,7 @@ const FormUpload = (props) => {
           id="inlineRadio1"
           value="1"
           onChange={(e) => setCopyright(e.target.value)}
+          required
         />
         <label class="form-check-label" for="inlineRadio1">
           Oui
@@ -52,6 +56,7 @@ const FormUpload = (props) => {
           id="inlineRadio2"
           value="0"
           onChange={(e) => setCopyright(e.target.value)}
+          required
         />
         <label class="form-check-label" for="inlineRadio2">
           Non
@@ -59,7 +64,9 @@ const FormUpload = (props) => {
       </div>
       <br />
       <input type="file" name="file" {...register("file")} required />
-      <button>Submit</button>
+      <button type="submit" className="btn btn-dark btn-lg btn-block">
+        Suivant
+      </button>
     </form>
   );
 };

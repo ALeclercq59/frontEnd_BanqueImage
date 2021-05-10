@@ -26,3 +26,18 @@ export const getAllCategories = () => {
   const url = BASE_URL + "categories/";
   return axios.get(url).then((response) => response.data);
 };
+
+export const updateDateImage = (id, formData) => {
+  const url = BASE_URL + "images/" + id + "/date";
+  return axios.put(url, formData).then((response) => response.data);
+};
+
+export const addCategoriesForImage = (id, formData) => {
+  const url = BASE_URL + "images/" + id + "/addCategorie";
+  return axios.put(url, formData).then((response) => response.data);
+};
+
+export const addMotsCleForImage = (id, formData) => {
+  const url = BASE_URL + "images/" + id + "/addMotCles";
+  return axios.put(url, formData).then((response) => response.data);
+};

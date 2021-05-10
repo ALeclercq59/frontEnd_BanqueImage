@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormAfterUpload from "../components/FormAfterUpload";
 
 import FormUpload from "../components/FormUpload";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Upload = () => {
   const [upload, setUpload] = useState(false);
@@ -17,7 +18,7 @@ const Upload = () => {
   if (!upload) {
     return <FormUpload checkUpload={(data) => checkUpload(data)} />;
   } else {
-    return <FormAfterUpload />;
+    return <FormAfterUpload dataImage={dataImage} />;
   }
 };
 
