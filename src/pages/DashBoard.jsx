@@ -9,8 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 
@@ -27,8 +25,12 @@ import Divider from "@material-ui/core/Divider";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import Images from "../pages/Images";
-import TestList from "../components/TestList";
-import Upload from "../pages/Upload1";
+import Users from "../pages/Users";
+import Upload from "../pages/Upload";
+import UpdateUser from "../pages/UpdateUser";
+import CreateUser from "../pages/CreateUser";
+import EditImage from "../pages/EditImage";
+import ImageShow from "../pages/ImageShow";
 
 const drawerWidth = 240;
 
@@ -213,8 +215,12 @@ const Dashboard = () => {
           <Container maxWidth="lg" className={classes.container}>
             <Switch>
               <Route exact path="/" component={Images} />
-              <Route path="/users" component={TestList} />
+              <Route path="/users" component={Users} />
               <Route path="/upload" component={Upload} />
+              <Route path="/user/update/:id" component={UpdateUser} />
+              <Route path="/user/create" component={CreateUser} />
+              <Route path="/image/edit/:id" component={EditImage} />
+              <Route path="/image/show/:id" component={ImageShow} />
             </Switch>
           </Container>
         </main>

@@ -27,6 +27,16 @@ export const getAllCategories = () => {
   return axios.get(url).then((response) => response.data);
 };
 
+export const getImageById = (id) => {
+  const url = BASE_URL + "images/" + id;
+  return axios.get(url).then((response) => response.data);
+};
+
+export const updateImage = (id, formData) => {
+  const url = BASE_URL + "images/" + id + "/update";
+  return axios.put(url, formData).then((response) => response.data);
+};
+
 export const updateDateImage = (id, formData) => {
   const url = BASE_URL + "images/" + id + "/date";
   return axios.put(url, formData).then((response) => response.data);
@@ -40,4 +50,30 @@ export const addCategoriesForImage = (id, formData) => {
 export const addMotsCleForImage = (id, formData) => {
   const url = BASE_URL + "images/" + id + "/addMotCles";
   return axios.put(url, formData).then((response) => response.data);
+};
+
+// Users
+export const getAllUsers = () => {
+  const url = BASE_URL + "users/";
+  return axios.get(url).then((response) => response.data);
+};
+
+export const getUserById = (id) => {
+  const url = BASE_URL + "users/" + id;
+  return axios.get(url).then((response) => response.data);
+};
+
+export const createUser = (formData) => {
+  const url = BASE_URL + "users/create";
+  return axios.post(url, formData).then((response) => response.data);
+};
+
+export const updateUser = (formData) => {
+  const url = BASE_URL + "users/update";
+  return axios.put(url, formData).then((response) => response.data);
+};
+
+export const removeUser = (id) => {
+  const url = BASE_URL + "users/" + id + "/delete";
+  return axios.delete(url).then((response) => response.status);
 };
